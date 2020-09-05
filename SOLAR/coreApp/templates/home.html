@@ -4,11 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Reports | SOLAR </title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="{% static 'css/login-styles.css' %}">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8"  src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js" ></script>
 </head>
 
 <body>
+    <div class="wrapper">
     <h1>We Did It!</h1>
+    <table id="reports" class="display" width="100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>State of Charge</th>
+                <th>Depth of Charge</th>
+                <th>Time Stamp</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for record in records %}
+            <tr>
+            <!-- <h3> {{ record }}</h3> -->
+            {% for key, value in record.items %}
+                <td>{{ value }}</td>
+            {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>ID</th>
+                <th>State of Charge</th>
+                <th>Depth of Charge</th>
+                <th>Time Stamp</th>
+            </tr>
+        </tfoot>
+    </table>
+    <script src="{% static 'js/script.js'%}" ></script>
+    </div>
 </body>
-
 </html>
