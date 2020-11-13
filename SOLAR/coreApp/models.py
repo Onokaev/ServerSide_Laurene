@@ -5,7 +5,9 @@ from django.db import models
 class SocDoc(models.Model):
     stateOfCharge = models.CharField(max_length = 100)
     depthOfCharge = models.CharField(max_length = 100)
+    loadsConnected = models.CharField(max_length = 100)
     timeStamp = models.CharField(max_length = 100)
+    
 
     def __str__(self):
         return self.stateOfCharge + ' ' + self.depthOfCharge

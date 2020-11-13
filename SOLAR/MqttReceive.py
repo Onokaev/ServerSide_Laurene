@@ -25,13 +25,14 @@ def on_message(client, userdata, msg):
         first_1 = m1.split('/')
         stateOC = first_1[0]
         depthOC = first_1[1]
+        loadsConnec = first_1[2]
 
          #add date
         date1 = datetime.datetime.now().time()
         print(date1)
         print("Saving")
 
-        data_saving = SocDoc(stateOfCharge = stateOC, depthOfCharge = depthOC, timeStamp = date1)
+        data_saving = SocDoc(stateOfCharge = stateOC, depthOfCharge = depthOC, loadsConnected = loadsConnec, timeStamp = date1)
         data_saving.save()
 
 def on_log(client, userdata, level, buf):
